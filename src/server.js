@@ -66,9 +66,9 @@ const proxy = {
 		const {req, socket, decision} = ctx
 		const mark = {close: '|', blank: '-', proxy: '>'}[decision] || '>'
 		if (socket)
-			console.log('TUNNEL', mark, req.url)
+			console.log('TUNNEL', mark, 'from ',req.socket.remoteAddress, ' destination: ',req.url)
 		else
-			console.log('MITM', mark, parse(req.url).host, req.socket.encrypted ? '(ssl)' : '')
+			console.log('MITM', mark, 'from ',req.socket.remoteAddress, ' destination: ', parse(req.url).host, req.socket.encrypted ? '(ssl)' : '')
 	},
 	authenticate: ctx => {
 		const {req, res, socket} = ctx
