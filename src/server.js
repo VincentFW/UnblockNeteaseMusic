@@ -67,9 +67,9 @@ const proxy = {
 		const mark = {close: '|', blank: '-', proxy: '>'}[decision] || '>'
 		let date_ob = new Date();
 		if (socket)
-			console.log('TUNNEL', mark, 'from ',req.socket.remoteAddress, ' destination: ',req.url," at ",date_ob.toUTCString)
+			console.log('TUNNEL', mark, 'from ',req.socket.remoteAddress, ' destination: ',req.url," at ",date_ob.toUTCString())
 		else
-			console.log('MITM', mark, 'from ',req.socket.remoteAddress, ' destination: ', parse(req.url).host, req.socket.encrypted ? '(ssl)' : ''," at ",date_ob.toUTCString)
+			console.log('MITM', mark, 'from ',req.socket.remoteAddress, ' destination: ', parse(req.url).host, req.socket.encrypted ? '(ssl)' : ''," at ",date_ob.toUTCString())
 	},
 	authenticate: ctx => {
 		const {req, res, socket} = ctx
